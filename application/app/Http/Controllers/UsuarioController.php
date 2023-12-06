@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UsuarioController extends Controller
 {
@@ -12,7 +13,6 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -29,7 +29,15 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $request['senha'] = bcrypt($request['senha']);
+
+        $query = $request->only(['nome_usuario', 'cpf', 'email', 'sexo', 'cep', 'bairro', 'cidade', 'estado', 'numero', 'tipo_usuario', 'senha', 'data_nascimento']);
+
+        Usuario::create($query);
+
+        return redirect('/')->with('message', 'Usuário criado e logado');
     }
 
     /**

@@ -15,9 +15,10 @@ use App\Http\Controllers\UsuarioController;
 */
 
 
-Route::get('/cadastro', [UsuarioController::class, 'create'])->name('cadastro.create');
+Route::post('/cadastro', [UsuarioController::class, 'store'])->name('usuarios.store');
+Route::get('/cadastro', [UsuarioController::class, 'create'])->name('usuarios.create');
 
 Route::get('/', function () {
     // return view('components.layout');
-    return view('components.layout');
+    return view('index');
 });

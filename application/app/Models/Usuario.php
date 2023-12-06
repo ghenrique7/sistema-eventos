@@ -52,6 +52,7 @@ class Usuario extends Model
 		'estado',
 		'numero',
 		'tipo_usuario',
+		'senha',
 		'data_nascimento'
 	];
 
