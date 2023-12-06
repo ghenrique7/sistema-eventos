@@ -14,7 +14,7 @@
         Header
     @endsection
 
-    <div>
+    <div class="flex items-center justify-center h-screen">
         @yield('content')
     </div>
 
