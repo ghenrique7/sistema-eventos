@@ -15,7 +15,6 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::get('/', function () {
-    return view('components.layout');
+    // return view('components.layout');
+    return view('usuarios.index');
 });
-
-Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuario.index');

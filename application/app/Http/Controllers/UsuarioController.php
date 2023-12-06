@@ -10,10 +10,9 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Usuario $usuario)
+    public function index()
     {
-        $usuarios = Usuario::all();
-        return $usuarios;
+
     }
 
     /**
