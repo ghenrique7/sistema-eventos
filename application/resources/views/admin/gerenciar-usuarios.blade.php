@@ -1,5 +1,5 @@
-<h1>Gerenciar eventos</h1>
+<h1>Gerenciar Usuarios</h1>
 
-<td>Evento1</td>
-<td>Evento2</td>
-<td>Evento3</td>
+<td>Usuario 1</td>
+<td>Usuario 2</td>
+<td>Usuario 3</td>

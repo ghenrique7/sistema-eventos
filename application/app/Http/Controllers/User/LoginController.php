@@ -38,11 +38,11 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             $request->session()->regenerate();
 
-            return redirect()->route('index');
+            return redirect()->route('index')->with('success', 'Usuario logado com sucesso.');
         }
 
 
-        return back()->with('error', 'As credenciais são inválidas!');
+        return back()->with('error', 'As credenciais inseridas são inválidas.');
     }
 
     /**

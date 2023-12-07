@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -30,15 +29,13 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $request['senha'] = bcrypt($request['senha']);
 
         $query = $request->only(['nome_usuario', 'cpf', 'email', 'sexo', 'cep', 'bairro', 'cidade', 'estado', 'numero', 'eh_admin', 'senha', 'data_nascimento']);
 
         Usuario::create($query);
 
-        return redirect('/')->with('message', 'Usuário criado e logado');
+        return redirect()->route('index')->with('success', 'Usuário criado com sucesso. Entre com seus novos dados no sistema');
     }
 
     /**

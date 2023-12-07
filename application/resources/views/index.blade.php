@@ -2,7 +2,7 @@
 
 @section('title', 'Inicio')
     
-@section('content')
+@section('content') 
 
 <h1>Teste</h1>
     

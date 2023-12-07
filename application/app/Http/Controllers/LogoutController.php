@@ -15,6 +15,6 @@ class LogoutController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('index')->with('message', 'Sua sessão foi encerrada.');
+        return redirect()->route('index')->with('success', 'Sua sessão foi encerrada com sucesso.');
     }
 }

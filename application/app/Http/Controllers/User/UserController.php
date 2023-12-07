@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
-use App\Models\Evento;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
-class EventController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('index');
+        //
     }
 
     /**
@@ -23,7 +23,7 @@ class EventController extends Controller
     public function create()
     {
         //
-        return view('admin.create');
+        Usuario:
     }
 
     /**
@@ -31,20 +31,21 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Evento $evento)
+    public function show(Usuario $usuario)
     {
-        //
+        return view('usuarios.minha-conta', compact('usuario'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Evento $evento)
+    public function edit(Usuario $usuario)
     {
         //
     }
@@ -52,7 +53,7 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request, Usuario $usuario)
     {
         //
     }
@@ -60,7 +61,7 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Evento $evento)
+    public function destroy(Usuario $usuario)
     {
         //
     }

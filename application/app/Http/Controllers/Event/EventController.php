@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Event;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('index');
+        //
     }
 
     /**
@@ -23,7 +23,7 @@ class EventController extends Controller
     public function create()
     {
         //
-        return view('admin.create');
+        
     }
 
     /**
@@ -31,6 +31,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        //
     }
 
     /**
