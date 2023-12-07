@@ -14,9 +14,14 @@
         @include('components.navbar')
     </div>
 
+    <div class="flex justify-center mb-10">
+        @yield('errors')
+    </div>
+
     <div class="flex items-center justify-center">
         @yield('content')
     </div>
+
     <div class="mt-10">
         @include('components.footer')
     </div>

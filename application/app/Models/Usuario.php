@@ -35,36 +35,41 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class Usuario extends Authenticatable
 {
-	protected $table = 'usuario';
-	protected $primaryKey = 'id_usuario';
-	public $timestamps = false;
+    protected $table = 'usuario';
+    protected $primaryKey = 'id_usuario';
+    public $timestamps = false;
 
-	protected $casts = [
-		'data_nascimento' => 'datetime'
-	];
+    protected $casts = [
+        'data_nascimento' => 'datetime'
+    ];
 
-	protected $fillable = [
-		'nome_usuario',
-		'cpf',
-		'email',
-		'sexo',
-		'cep',
-		'bairro',
-		'cidade',
-		'estado',
-		'numero',
-		'eh_admin',
-		'senha',
-		'data_nascimento'
-	];
+    protected $fillable = [
+        'nome_usuario',
+        'cpf',
+        'email',
+        'sexo',
+        'cep',
+        'bairro',
+        'cidade',
+        'estado',
+        'numero',
+        'eh_admin',
+        'senha',
+        'data_nascimento'
+    ];
 
-	public function telefone_usuarios()
-	{
-		return $this->hasMany(TelefoneUsuario::class, 'fk_idusuario');
-	}
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 
-	public function participante_eventos()
-	{
-		return $this->hasMany(ParticipanteEvento::class, 'fk_idusuario');
-	}
+    public function telefone_usuarios()
+    {
+        return $this->hasMany(TelefoneUsuario::class, 'fk_idusuario');
+    }
+
+    public function participante_eventos()
+    {
+        return $this->hasMany(ParticipanteEvento::class, 'fk_idusuario');
+    }
 }

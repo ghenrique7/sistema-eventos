@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Usuario;
+use App\Models\Evento;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 
 
-class LoginController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('usuarios.login');
+        return view('admin.gerenciar-eventos');
     }
 
     /**
@@ -31,24 +30,12 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-
-        $email = $request['email'];
-        $password = $request['senha'];
-
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            $request->session()->regenerate();
-
-            return redirect()->route('index');
-        }
-
-
-        return back()->with('error', 'As credenciais são inválidas!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Usuario $usuario)
+    public function show(Evento $evento)
     {
         //
     }
@@ -56,7 +43,7 @@ class LoginController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
+    public function edit(Evento $evento)
     {
         //
     }
@@ -64,7 +51,7 @@ class LoginController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Evento $evento)
     {
         //
     }
@@ -72,7 +59,7 @@ class LoginController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Evento $evento)
     {
         //
     }
