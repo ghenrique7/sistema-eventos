@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\User\RegisterController;
+use App\Http\Controllers\User\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,10 @@ use App\Http\Controllers\UsuarioController;
 */
 
 
-Route::post('/cadastro', [UsuarioController::class, 'store'])->name('usuarios.store');
-Route::get('/cadastro', [UsuarioController::class, 'create'])->name('usuarios.create');
+Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::post('/cadastro', [RegisterController::class, 'store'])->name('cadastro.store');
+Route::get('/cadastro', [RegisterController::class, 'create'])->name('cadastro.create');
 
 Route::get('/', function () {
     // return view('components.layout');

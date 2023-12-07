@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 
-class UsuarioController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +34,7 @@ class UsuarioController extends Controller
 
         $request['senha'] = bcrypt($request['senha']);
 
-        $query = $request->only(['nome_usuario', 'cpf', 'email', 'sexo', 'cep', 'bairro', 'cidade', 'estado', 'numero', 'tipo_usuario', 'senha', 'data_nascimento']);
+        $query = $request->only(['nome_usuario', 'cpf', 'email', 'sexo', 'cep', 'bairro', 'cidade', 'estado', 'numero', 'eh_admin', 'senha', 'data_nascimento']);
 
         Usuario::create($query);
 

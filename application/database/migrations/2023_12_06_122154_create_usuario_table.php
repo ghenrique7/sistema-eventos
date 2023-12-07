@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('cidade', 30);
             $table->char('estado', 2);
             $table->string('numero', 10);
-            $table->enum('tipo_usuario', ['Participante', 'Administrador']);
+            $table->boolean('eh_admin')->default(0);
             $table->string('senha');
         });
         DB::statement("ALTER TABLE usuario ADD data_nascimento dm_data_nascimento");
