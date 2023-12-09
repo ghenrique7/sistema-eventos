@@ -11,7 +11,7 @@
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="{{route('index')}}"
+                        <a href="{{ route('index') }}"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             aria-current="page">Eventos</a>
                     </li>
@@ -19,46 +19,48 @@
                     @guest
                         <li>
                             <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contatos</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contatos</a>
                         </li>
                     @endguest
 
-                    
+
                     @if (auth()->check() && !auth()->user()->eh_admin)
                         <li>
                             <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contatos</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contatos</a>
                         </li>
                     @endif
-                    
+
                     @if (auth()->check() && auth()->user()->eh_admin)
                         <li>
-                            <a href="{{route('event.index')}}"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Gerenciar Eventos</a>
+                            <a href="{{ route('event.index') }}"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Gerenciar
+                                Eventos</a>
                         </li>
                     @endif
-                   
 
-                    @auth     
-                    <li>
-                        <a href="{{route('usuario.show', auth()->user())}}"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minha
-                        Conta</a>
-                    </li>
+
+                    @auth
+                        <li>
+                            <a href="{{ route('usuario.show', auth()->user()) }}"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minha
+                                Conta</a>
+                        </li>
                     @endauth
                     @guest
-                    <li>
-                        <a href="{{route('login.index')}}"
-                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minha
-                        Conta</a>
-                    </li>
+                        <li>
+                            <a href="{{ route('login.index') }}"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Minha
+                                Conta</a>
+                        </li>
                     @endguest
                     @auth
                         <li>
-                            <form action="{{ route('logout.store') }}" method="post" class="class="block py-2 px-3
+                            <form action="{{ route('logout.store') }}" method="post"
+                                class="block py-2 px-3
                                 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0
                                 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500
-                                dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"">
+                                dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
                                 @csrf
                                 <button type="submit">Sair</button>
                             </form>

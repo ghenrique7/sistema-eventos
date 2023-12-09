@@ -12,8 +12,8 @@
     <div>
         <div>
             <button type="submit"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-6">
-                <a href="{{route('cadastro.create')}}" class="mx-4">Ainda não tenho uma conta</a>
+                class="text-black bg-yellow-300 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-dark-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-6">
+                <a href="{{ route('cadastro.create') }}" class="mx-4">Não tenho cadastro</a>
             </button>
         </div>
         <form action="{{ route('login.store') }}" method="POST">
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <button type="submit"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Entrar</button>
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Entrar</button>
                 </div>
             </div>
         </form>

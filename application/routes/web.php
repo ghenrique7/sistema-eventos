@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminEventController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\LoginController;
-use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\Event\EventController;
+use App\Http\Controllers\User\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,9 @@ use App\Http\Controllers\User\UserController;
 */
 
 Route::prefix('admin')->middleware(['auth', 'eh_admin'])->group(function () {
-    Route::get('/eventos', [EventController::class, 'index'])->name('event.index');
-    Route::get('/adicionar-evento', [EventController::class, 'create'])->name('event.create');
+    Route::get('/eventos', [AdminEventController::class, 'index'])->name('event.index');
+    Route::post('/adicionar-evento', [AdminEventController::class, 'store'])->name('event.store');
+    Route::get('/adicionar-evento', [AdminEventController::class, 'create'])->name('event.create');
 });
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout.store');

@@ -18,11 +18,11 @@ return new class extends Migration
             $table->increments('id_evento');
             $table->string('nome_evento', 45);
             $table->text('descricao')->nullable();
-            $table->text('premiacao');
+            $table->text('premiacao')->nullable();
             $table->integer('total_participante');
             $table->enum('situacao', ['Em andamento', 'Finalizado', 'Esgotado'])->default('Em andamento');
             $table->text('imagem_arte')->nullable();
-            $table->text('detalhe_entrega_kit');
+            $table->text('detalhe_entrega_kit')->nullable();
             $table->integer('fk_idmodalidade');
         });
         DB::statement("ALTER TABLE evento ADD data_hora dm_data_evento");

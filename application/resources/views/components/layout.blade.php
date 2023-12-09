@@ -9,18 +9,18 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body class="flex flex-col justify-between">
+<body class="flex flex-col">
     <div>
         @include('components.navbar')
     </div>
 
     <x-flash-messages />
 
-    <div class="flex items-center justify-center h-screen">
+    <div class="flex items-center justify-center">
         @yield('content')
     </div>
 
-    <footer class="bg-gray-900 text-white">
+    <footer class="bg-gray-900 text-white mt-10">
         @include('components.footer')
     </footer>
 </body>
