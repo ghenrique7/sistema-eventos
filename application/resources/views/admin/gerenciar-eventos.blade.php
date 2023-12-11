@@ -3,10 +3,10 @@
 @section('title', 'Gerenciar Eventos')
 
 @section('header')
-    <div class="flex justify-center items-center">
+    <div class="flex justify-end items-center mr-4 pr-4">
         <a href="{{ route('event.create') }}">
             <button
-                class="text-white bg-green-900 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-900 dark:focus:ring-blue-900">
+                class="text-white bg-green-600 hover:bg-green-300 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-900 dark:focus:ring-blue-900">
                 Criar novo evento
             </button>
         </a>
@@ -53,8 +53,7 @@
                                     {{ $evento->total_participante }}
                                 </td>
                                 <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                    {{ $evento->inscricao }}
-                                </td>
+                                    {{ \Illuminate\Support\Str::limit($evento->inscricao, 30, '...') }}                                </td>
                                 <td>
                                     <form action="{{ route('event.destroy', $evento) }}" method="POST"
                                         onsubmit="return confirm('Tem certeza que deseja apagar o evento? Ele apagará mesmo que hajam usuários inscritos!')">

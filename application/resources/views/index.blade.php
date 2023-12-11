@@ -8,7 +8,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @foreach ($eventos as $evento)
                 <div
-                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-10">
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-10 ">
                     <a href="{{ route('event.show', $evento) }}">
                         <img class="rounded-t-lg h-auto max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0"
                             src="{{ $evento->imagem_arte ? asset('storage/' . $evento->imagem_arte) : asset('/images/no-image.png') }}"
@@ -40,7 +40,7 @@
             @endforeach
         </div>
     @else
-        <div class="max-w-sm flex items-center">
+        <div class="max-w-sm flex items-center h-screen">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-8 " fill="none" viewBox="0 0 24 24" stroke="currentColor"
                 stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"

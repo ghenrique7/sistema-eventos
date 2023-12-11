@@ -16,7 +16,8 @@ class EventController extends Controller
     {
         //
         $eventos = Evento::get();
-        return view('index', compact('eventos'));
+        $usuario = auth()->user();
+        return view('index', compact('eventos', 'usuario'));
     }
 
     public function show(Evento $evento)
