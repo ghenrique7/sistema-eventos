@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
 </head>
 
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col">
     <nav>
         @include('components.navbar')
     </nav>
@@ -20,15 +20,16 @@
         @yield('header')
     </header>
 
-    <main>
-        <div class="flex items-center justify-center h-screen">
-            @yield('content')
-        </div>
-    </main>
-
-    <footer class="bg-gray-900 text-white p-5 bottom-0 mt-10">
-        @include('components.footer')
-    </footer>
+    <div class="flex-grow flex items-center justify-center mb-10">
+        @yield('content')
+    </div>
+    
+    <div>
+        <footer class="bg-gray-900 text-white p-4 bottom-0 relative">
+            @include('components.footer')
+        </footer>
+    </div>
+    
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>

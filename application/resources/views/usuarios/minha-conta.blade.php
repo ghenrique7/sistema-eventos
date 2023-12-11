@@ -84,15 +84,14 @@
                     placeholder="•••••••••" readonly>
             </div>
         </div>
-        @unless (count($usuario->eventos) == 0 && !auth()->user()->eh_admin)
+        @unless (count($usuario->eventos) == 0 || auth()->user()->eh_admin)
             <h1 class="mb-8  text-3xl font-extrabold leading-none tracking-tight text-gray-900">
                 Meus Eventos
             </h1>
-            @foreach ($usuario->eventos as $evento)
-                <div>
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <div>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
                                         Evento
@@ -106,8 +105,9 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($usuario->eventos as $evento)
                                 <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                         {{ $evento->nome_evento }}
                                     </td>
@@ -118,12 +118,20 @@
                                         {{ $evento->pivot->situacao_inscricao }}
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
         </div>
-        @endforeach
+    @else
+    @auth
+    @if(!auth()->user()->eh_admin)
+            <h1 class="mb-8 mt-10  text-2xl font-bold leading-none tracking-tight text-gray-900">
+                        Você não está inscrito em nenhum evento.
+            </h1>
+    @endif
+    @endauth
     @endunless
     </div>
 @endsection

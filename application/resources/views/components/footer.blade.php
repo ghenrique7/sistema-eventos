@@ -1,4 +1,4 @@
-    <div class="mx-auto w-1/2 flexitems-center">
+    <div class="mx-auto w-1/2 flex items-center">
         <div class="grid grid-cols-3 gap-8 px-4 py-6 lg:py-8 md:grid-cols-3 text-white">
             <div>
                 <h2 class="mb-6 text-xs font-semibold text-gray-900 uppercase dark:text-white text-white">CRNSTM</h2>
@@ -32,7 +32,7 @@
                 <h2 class="mb-6 text-xs font-semibold text-gray-900 uppercase dark:text-white text-white">MENU</h2>
                 <ul class="text-dark-500 dark:text-gray-400 font-medium text-xs">
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Eventos</a>
+                        <a href="{{route('index')}}" class="hover:underline">Eventos</a>
                     </li>
                     <li class="mb-4">
                         <a href="#" class="hover:underline">Contatos</a>
