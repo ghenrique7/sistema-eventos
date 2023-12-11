@@ -49,6 +49,10 @@ class Evento extends Model
         'premiacao',
         'total_participante',
         'situacao',
+        'kit',
+        'categoria',
+        'distancia',
+        'inscricao',
         'imagem_arte',
         'detalhe_entrega_kit',
         'fk_idmodalidade',
@@ -60,18 +64,9 @@ class Evento extends Model
         return $this->belongsTo(Modalidade::class, 'fk_idmodalidade');
     }
 
-    public function categoria()
+    public function usuarios()
     {
-        return $this->hasMany(Categoria::class, 'fk_idevento');
-    }
-
-    public function kits()
-    {
-        return $this->belongsToMany(Kit::class, 'evento_kit', 'fk_idevento', 'fk_idkit');
-    }
-
-    public function participante_eventos()
-    {
-        return $this->hasMany(ParticipanteEvento::class, 'fk_idevento');
+        return $this->belongsToMany(Usuario::class, 'participante_evento', 'fk_idevento', 'fk_idusuario')
+            ->withPivot(['situacao_inscricao']);
     }
 }

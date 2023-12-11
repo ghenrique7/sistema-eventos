@@ -9,7 +9,10 @@
 @endsection
 
 @section('content')
-    <div>
+    <div class="h-screen flex items-center flex-col justify-center">
+        <h1 class="mb-8 text-5xl font-bold leading-none tracking-tight text-gray-900">
+            Fazer Login
+        </h1>
         <div>
             <button type="submit"
                 class="text-black bg-yellow-300 hover:bg-blue-900 hover:text-white focus:ring-4 focus:outline-none focus:ring-dark-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-6">

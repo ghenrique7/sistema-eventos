@@ -68,8 +68,9 @@ class Usuario extends Authenticatable
         return $this->hasMany(TelefoneUsuario::class, 'fk_idusuario');
     }
 
-    public function participante_eventos()
+    public function eventos()
     {
-        return $this->hasMany(ParticipanteEvento::class, 'fk_idusuario');
+        return $this->belongsToMany(Evento::class, 'participante_evento', 'fk_idusuario', 'fk_idevento')
+            ->withPivot(['situacao_inscricao']);;
     }
 }

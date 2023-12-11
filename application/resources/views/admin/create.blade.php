@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form class="max-w-md mx-auto" action="{{ route('event.store') }}" method="POST">
+    <form class="max-w-md mx-auto" action="{{ route('event.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="relative z-0 w-full mb-5 group">
             <input type="text" name="nome_evento"
@@ -62,6 +62,12 @@
                 <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG (MAX. 800x400px).</p>
             </div>
         </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <label for="kit" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kits</label>
+            <textarea required id="kit" name="kit" rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Kits do evento">{{ old('kit') }}</textarea>
+        </div>
         <div class="grid md:grid-cols-1 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
                 <label for="detalhe_entrega_kit"
@@ -74,15 +80,36 @@
         <div class="grid md:grid-cols-2 md:gap-6 mb-4">
             <div>
                 <label for="data_hora">Data e Hora do evento</label>
-                <input type="datetime-local" id="data_hora" name="data_hora" class="mt-4" />
+                <input type="datetime-local" id="data_hora" name="data_hora" class="mt-4" required />
             </div>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <label for="categoria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categoria</label>
+            <textarea id="categoria" name="categoria" rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Categorias do evento">{{ old('categoria') }}</textarea>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <label for="distancia" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Distancia</label>
+            <textarea required id="distancia" name="distancia" rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Distancia do percurso">{{ old('distancia') }}</textarea>
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            <label for="inscricao" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                Inscrição</label>
+            <textarea id="inscricao" name="inscricao" rows="4"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Valor da inscrição">{{ old('inscricao') }}</textarea>
         </div>
         <div class="grid md:grid-cols-2 md:gap-6 mb-4">
             <div>
-                <label for="fk_idmodalidade" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modalidade
+                <label for="fk_idmodalidade"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modalidade
                     Evento</label>
                 <select id="fk_idmodalidade" name="fk_idmodalidade"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required>
                     @foreach ($modalidades as $modalidade)
                         <option value="{{ $modalidade->id_modalidade }}">{{ $modalidade->modalidade }}</option>
                     @endforeach

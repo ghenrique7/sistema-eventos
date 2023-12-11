@@ -21,6 +21,10 @@ return new class extends Migration
             $table->text('premiacao')->nullable();
             $table->integer('total_participante');
             $table->enum('situacao', ['Em andamento', 'Finalizado', 'Esgotado'])->default('Em andamento');
+            $table->text('kit');
+            $table->text('categoria')->nullable();
+            $table->text('distancia');
+            $table->text('inscricao')->nullable();
             $table->text('imagem_arte')->nullable();
             $table->text('detalhe_entrega_kit')->nullable();
             $table->integer('fk_idmodalidade');

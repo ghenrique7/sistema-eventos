@@ -15,52 +15,24 @@ class EventController extends Controller
     public function index()
     {
         //
-        return view('index');
+        $eventos = Evento::get();
+        return view('index', compact('eventos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Evento $evento)
     {
-        //
+        return view('eventos.show', compact('evento'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Evento $evento)
     {
-        //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Evento $evento)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Evento $evento)
     {
         //

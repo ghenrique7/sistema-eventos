@@ -6,6 +6,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\Event\EventController;
+use App\Http\Controllers\Subscribe\SubscribeEventController;
 use App\Http\Controllers\User\RegisterController;
 
 /*
@@ -21,9 +22,19 @@ use App\Http\Controllers\User\RegisterController;
 
 Route::prefix('admin')->middleware(['auth', 'eh_admin'])->group(function () {
     Route::get('/eventos', [AdminEventController::class, 'index'])->name('event.index');
+    Route::delete('/eventos/{evento}', [AdminEventController::class, 'destroy'])->name('event.destroy');
+    Route::get('/eventos/{evento}/edit', [AdminEventController::class, 'edit'])->name('event.edit');
+    Route::put('/eventos/{evento}', [AdminEventController::class, 'update'])->name('event.update');
     Route::post('/adicionar-evento', [AdminEventController::class, 'store'])->name('event.store');
     Route::get('/adicionar-evento', [AdminEventController::class, 'create'])->name('event.create');
 });
+
+Route::prefix('inscrever')->middleware('auth')->group(function () {
+    Route::get('/{evento}', [SubscribeEventController::class, 'index'])->name('subscribe.index');
+    Route::post('/{evento}', [SubscribeEventController::class, 'store'])->name('subscribe.store');
+});
+
+Route::get('/eventos/{evento}', [EventController::class, 'show'])->name('event.show');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout.store');
 
